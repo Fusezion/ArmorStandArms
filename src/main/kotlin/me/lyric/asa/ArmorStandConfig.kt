@@ -8,8 +8,8 @@ class ArmorStandConfig(
 	private val plugin: ArmorStandPlugin
 ) {
 
-	private val configFile = File(plugin.dataFolder, "config.yml").also { if (!it.exists()) plugin.saveResource("config.yaml", false) }
-	private val config = YamlConfiguration.loadConfiguration(configFile)
+	private val configFile = File(plugin.dataFolder, "config.yml").also { if (!it.exists()) plugin.saveResource("config.yml", false) }
+	internal val config = YamlConfiguration.loadConfiguration(configFile)
 
 	init {
 		matchConfig()
@@ -47,11 +47,11 @@ class ArmorStandConfig(
 		get() = config.getBoolean("debug-mode", false)
 		set(value) { config.set("debug-mode", value) }
 	var armsEnabled: Boolean
-		get() = config.getBoolean("arms-enabled", true)
-		set(value) { config.set("arms-enabled", value) }
+		get() = config.getBoolean("allow-armor-stand-arms", true)
+		set(value) { config.set("allow-armor-stand-arms", value) }
 
-	fun saveConfig(replace: Boolean = false) {
-		plugin.saveResource("config.yml", replace)
+	fun saveConfig() {
+		config.save(configFile)
 	}
 
 }
