@@ -16,9 +16,9 @@ However, only adding that didn't seem like a good plugin, and felt overly basic 
 Toggle adding arms to armor stand on place by doing
 - Permission: `armorstand.command.toggle`
 
-## Command - /armorstand version
-Get a version message of the plugin. Why? zero clue just wanted to add it.
-- Permission: `armorstand.command.version`
+## Command - /armorstand info
+Get an info message of the plugin. Why? zero clue just wanted to add it.
+- Permission: `armorstand.command.info`
 
 ## Command - /armorstand reload
 Reloads the config and message.properties of the plugin. Great for changing messages to your liking!

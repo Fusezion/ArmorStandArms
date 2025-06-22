@@ -9,7 +9,7 @@ class ArmorStandProperties(
 ) {
 
 	private val properties = Properties()
-	private val file = File(plugin.dataFolder, fileName)
+	private val file = File(plugin.dataFolder, fileName).also { if (!it.exists()) plugin.saveResource("messages.properties", false) }
 
 	init {
 		properties.load(file.inputStream())
