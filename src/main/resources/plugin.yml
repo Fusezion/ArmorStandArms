@@ -1,0 +1,7 @@
+name: ArmourStandArms
+version: '1.0'
+main: me.lyric.asa.ArmourStandArms
+api-version: '1.21'
+load: STARTUP
+authors: [ Lyric ]
+description: ArmorStands with arms
