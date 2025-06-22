@@ -1,6 +1,8 @@
+@file:Suppress("UnstableApiUsage")
+
 package me.lyric.asa
 
-import org.bukkit.entity.ArmorStand
+import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.logging.Logger
 
@@ -21,6 +23,10 @@ class ArmorStandPlugin : JavaPlugin() {
 		armorStandConfig = ArmorStandConfig(this)
 		armorStandProperties = ArmorStandProperties(this, "messages.properties")
 		server.pluginManager.registerEvents(ArmorStandListener(), this)
+
+		this.lifecycleManager.registerEventHandler(LifecycleEvents.COMMANDS) {
+			it.registrar().register(ArmorStandCommand().register())
+		}
 	}
 
 	override fun onDisable() {
