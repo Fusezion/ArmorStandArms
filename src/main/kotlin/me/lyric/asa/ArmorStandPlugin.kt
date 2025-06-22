@@ -1,21 +1,30 @@
 package me.lyric.asa
 
-import org.bukkit.command.Command
-import org.bukkit.command.CommandSender
+import org.bukkit.entity.ArmorStand
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.logging.Logger
 
-class ArmourStandArms : JavaPlugin() {
+class ArmorStandPlugin : JavaPlugin() {
 
 	companion object {
-		var armorStandArms : Boolean = true
+		lateinit var instance : ArmorStandPlugin
+			private set
+		lateinit var pluginLogger: Logger
+			private set
+		lateinit var armorStandConfig : ArmorStandConfig
+		lateinit var armorStandProperties : ArmorStandProperties
 	}
 
-	override fun onLoad() { super.onLoad() }
-
-	override fun onEnable() { /* Plugin startup logic */ }
+	override fun onEnable() {
+		instance = this
+		pluginLogger = this.logger
+		armorStandConfig = ArmorStandConfig(this)
+		armorStandProperties = ArmorStandProperties(this, "messages.properties")
+		server.pluginManager.registerEvents(ArmorStandListener(), this)
+	}
 
 	override fun onDisable() {
-		/* Plugin shutdown logic */
+		armorStandConfig.saveConfig()
 	}
 
 }

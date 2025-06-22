@@ -1,6 +1,6 @@
 name: ArmourStandArms
 version: '1.0'
-main: me.lyric.asa.ArmourStandArms
+main: me.lyric.asa.ArmorStandPlugin
 api-version: '1.21'
 load: STARTUP
 authors: [ Lyric ]

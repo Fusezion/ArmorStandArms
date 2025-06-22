@@ -3,7 +3,7 @@ package me.lyric.asa
 import java.io.File
 import java.util.Properties
 
-class ArmorProperties(
+class ArmorStandProperties(
 	private val plugin: ArmorStandPlugin,
 	private val fileName: String
 ) {
