@@ -50,6 +50,10 @@ object AdventureUtils {
 				if (string.startsWith("\"") && string.endsWith("\""))
 					string = string.substring(1, string.length - 1)
 				for (charFormat in CharacterAndFormat.defaults()) {
+					if (charFormat.character() == 'r') {
+						string = string.replace("&r", "<reset>")
+						continue
+					}
 					string = string.replace("&${charFormat.character()}", "<${charFormat.format()}>")
 				}
 				return@preProcessor string
